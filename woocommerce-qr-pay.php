@@ -10,6 +10,8 @@ Version: 1.0.0
 Author URI: https://www.samiullahjaml.com/about-me/
 */
 
+include_once dirname(__FILE__) . '/inc/admin-page.php';
+
 function get_client_ip() {
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))
