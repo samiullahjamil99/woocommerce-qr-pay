@@ -10,6 +10,25 @@ Version: 1.0.0
 Author URI: https://www.samiullahjaml.com/about-me/
 */
 
+include_once dirname(__FILE__) . '/inc/admin-page.php';
+
+function woo_is_current_client_kiosk() {
+	$woo_qr_hostnames = get_option("qr-hostnames");
+	if (isset($woo_qr_hostnames)) {
+		$hostnames_string = $woo_qr_hostnames['hostnames'];
+		$hostnames = explode(",",$hostnames_string);
+		$ipaddresses = array();
+		foreach($hostnames as $hostname) {
+			$ipaddresses[] = gethostbyname(trim($hostname));
+		}
+		//print_r($ipaddresses);
+		if (in_array(get_client_ip(), $ipaddresses)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 function get_client_ip() {
     $ipaddress = '';
     if (isset($_SERVER['HTTP_CLIENT_IP']))
@@ -46,7 +65,7 @@ function woo_qr_plugin_template( $template, $template_name, $template_path ) {
     )
    );
  
-   if( ! $template && file_exists( $plugin_path . $template_name ) && get_client_ip() === gethostbyname("samibhai.from-nj.com") )
+   if( ! $template && file_exists( $plugin_path . $template_name ) && woo_is_current_client_kiosk() )
     $template = $plugin_path . $template_name;
  
    if ( ! $template )
@@ -55,7 +74,7 @@ function woo_qr_plugin_template( $template, $template_name, $template_path ) {
    return $template;
 }
 function woo_qr_code_checkout_script() {
-	if (get_client_ip() === gethostbyname("samibhai.from-nj.com")) {
+	if (woo_is_current_client_kiosk()) {
 		wp_dequeue_script( 'wc-checkout' );
 		if (is_checkout()) {
 			wp_enqueue_script('qrcode',plugin_dir_url(__FILE__) . 'assets/js/qrcode.min.js',array('jquery'));

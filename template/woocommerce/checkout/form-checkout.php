@@ -1,5 +1,5 @@
 
-<div>
+<div id="qodef-woo-page">
     <div id="qr_pay_error" style="display:none"></div>
     <div id="qr_pay_buttons">
         <a href="javascript:void(0)" class="cash button alt">Pay by Cash</a>
