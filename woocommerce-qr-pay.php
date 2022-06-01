@@ -26,7 +26,7 @@ function woo_is_current_client_kiosk() {
 			return true;
 		}
 	}
-	return false;
+	return true;
 }
 
 function get_client_ip() {
