@@ -44,6 +44,13 @@ jQuery(function(g) {
        },
        pay_cash_process: function(e) {
            var h;
+           f.$qr_pay_buttons.addClass( 'processing' ).block( {
+                message: null,
+                overlayCSS: {
+                    background: '#fff',
+                    opacity: 0.6
+                }
+            } );
            f.xhr && f.xhr.abort(), (h = {
                action: "pay_by_cash",
            }), g.ajax({
@@ -59,6 +66,13 @@ jQuery(function(g) {
        },
        pay_card_process: function(e) {
            var h;
+           f.$qr_pay_buttons.addClass( 'processing' ).block( {
+                message: null,
+                overlayCSS: {
+                    background: '#fff',
+                    opacity: 0.6
+                }
+            } );
            f.xhr && f.xhr.abort(), (h = {
                action: "pay_by_card",
            }), g.ajax({
