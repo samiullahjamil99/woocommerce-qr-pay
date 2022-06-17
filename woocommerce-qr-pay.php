@@ -21,7 +21,7 @@ function woo_is_current_client_kiosk() {
 		foreach($hostnames as $hostname) {
 			$ipaddresses[] = gethostbyname(trim($hostname));
 		}
-		//print_r($ipaddresses);
+		$ipaddresses[] = '::1';
 		if (in_array(get_client_ip(), $ipaddresses)) {
 			return true;
 		}
@@ -88,15 +88,12 @@ add_action( 'wp_ajax_nopriv_pay_by_cash', 'woo_qr_pay_by_cash' );
 function woo_qr_pay_by_cash() {
 	$response = array();
 	$cart_hash          = WC()->cart->get_cart_hash();
-	//$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-	//$payment_method = "cod";
 	$order = new WC_Order();
 	$order->set_created_via( 'checkout' );
 	$order->set_cart_hash( $cart_hash );
 	$order->set_currency( get_woocommerce_currency() );
 	$order->set_customer_ip_address( WC_Geolocation::get_ip_address() );
 	$order->set_customer_user_agent( wc_get_user_agent() );
-	//$order->set_payment_method( isset( $available_gateways[ $payment_method ] ) ? $available_gateways[ $payment_method ] : $payment_method );
 	WC()->checkout->set_data_from_cart( $order );
 	$order_id = $order->save();
 	$order->payment_complete();
@@ -111,7 +108,6 @@ add_action( 'wp_ajax_nopriv_pay_by_card', 'woo_qr_pay_by_card' );
 function woo_qr_pay_by_card() {
 	$response = array();
 	$cart_hash          = WC()->cart->get_cart_hash();
-	//$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 	$payment_method = "cod";
 	$order = new WC_Order();
 	$order->set_created_via( 'checkout' );
@@ -119,7 +115,6 @@ function woo_qr_pay_by_card() {
 	$order->set_currency( get_woocommerce_currency() );
 	$order->set_customer_ip_address( WC_Geolocation::get_ip_address() );
 	$order->set_customer_user_agent( wc_get_user_agent() );
-	//$order->set_payment_method( isset( $available_gateways[ $payment_method ] ) ? $available_gateways[ $payment_method ] : $payment_method );
 	WC()->checkout->set_data_from_cart( $order );
 	$order_id = $order->save();
 	WC()->session->set( 'order_awaiting_payment', $order_id );
@@ -127,6 +122,32 @@ function woo_qr_pay_by_card() {
 	$response['message'] = $order->get_checkout_payment_url();
 	$response['paylink'] = $order->get_checkout_payment_url();
 	$response['orderid'] = $order_id;
+	wp_send_json($response);
+}
+
+add_action("wp_ajax_qr_cancel_order","woo_qr_cancel_order");
+add_action("wp_ajax_nopriv_qr_cancel_order","woo_qr_cancel_order");
+function woo_qr_cancel_order() {
+	$response = array();
+	$orderid = intval($_POST['orderid']);
+	$order = wc_get_order($orderid);
+	if (!empty($order)) {
+		$order->update_status( 'cancelled' );
+		$response['success'] = true;
+	}
+	wp_send_json($response);
+}
+
+add_action('wp_ajax_nopriv_repay_by_cash','woo_qr_repay_by_cash');
+add_action('wp_ajax_repay_by_cash','woo_qr_repay_by_cash');
+function woo_qr_repay_by_cash() {
+	$response = array();
+	$orderid = intval($_POST['orderid']);
+	$order = wc_get_order($orderid);
+	if (!empty($order)) {
+		$order->update_status( 'wc-processing' );
+		$response['redirect'] = $order->get_checkout_order_received_url();
+	}
 	wp_send_json($response);
 }
 
@@ -141,3 +162,17 @@ function woo_qr_order_status() {
 	}
 	wp_send_json($response);
 }
+
+
+function woo_qr_redirect_thankyou() {
+	?>
+<script>
+jQuery(document).ready(function() {
+	setTimeout(function() {
+		window.location.replace("<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>");
+	},10000);
+});
+</script>
+<?php
+}
+add_action('woocommerce_thankyou','woo_qr_redirect_thankyou');
