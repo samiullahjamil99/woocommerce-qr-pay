@@ -8,8 +8,8 @@
         <div id="qr_orderdetails"></div>
         <div id="qrcode"></div>
         <div style="margin-top:10px;">
-			<a href="javascript:void(0)" class="cancel button alt">Cancel Order</a>
-			<a href="javascript:void(0)" class="cash button alt">Pay at Terminal</a>
+			<a href="javascript:void(0)" class="cancel button alt">annuler la commande</a>
+			<a href="javascript:void(0)" class="cash button alt">payer à la caisse</a>
 		</div>
     </div>
 </div>
