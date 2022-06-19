@@ -1,15 +1,15 @@
 <div id="qodef-woo-page">
     <div id="qr_pay_error" style="display:none"></div>
     <div id="qr_pay_buttons">
-        <a href="javascript:void(0)" class="cash button alt">Pay by Cash</a>
-        <a href="javascript:void(0)" class="card button alt">Pay by Card</a>
+        <a href="javascript:void(0)" class="cash button alt"><?php echo __("Pay by Cash","woocommerce-qr-pay"); ?></a>
+        <a href="javascript:void(0)" class="card button alt"><?php echo __("Pay by Card","woocommerce-qr-pay"); ?></a>
     </div>
     <div id="qr_pay_code_container" style="display:none">
         <div id="qr_orderdetails"></div>
         <div id="qrcode"></div>
         <div style="margin-top:10px;">
-			<a href="javascript:void(0)" class="cancel button alt">Cancel Order</a>
-			<a href="javascript:void(0)" class="cash button alt">Pay at Terminal</a>
+			<a href="javascript:void(0)" class="cancel button alt"><?php echo __("Cancel Order","woocommerce-qr-pay"); ?></a>
+			<a href="javascript:void(0)" class="cash button alt"><?php echo __("Pay at Terminal","woocommerce-qr-pay"); ?></a>
 		</div>
     </div>
 </div>
@@ -112,7 +112,7 @@ jQuery(function(g) {
                    if (e.paylink) {
                        f.$qr_pay_code_container.show();
                        f.$qr_pay_buttons.hide();
-                       f.$qr_orderdetails.html("Scan QR Code on your Phone to enter card details on Phone with Order #"+e.orderid);
+                       f.$qr_orderdetails.html("<?php echo __("Scan QR Code on your Phone to enter card details on Phone with Order #","woocommerce-qr-pay"); ?>"+e.orderid);
                        QR_CODE.makeCode(e.paylink);
                        setInterval(function () {f.check_order_status(e.orderid)}, 5000);
                        f.orderid = e.orderid;
