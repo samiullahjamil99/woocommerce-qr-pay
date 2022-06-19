@@ -12,6 +12,11 @@ Author URI: https://www.samiullahjaml.com/about-me/
 
 include_once dirname(__FILE__) . '/inc/admin-page.php';
 
+add_action('init','woocommerce_qr_pay_init');
+function woocommerce_qr_pay_init() {
+	load_plugin_textdomain('woocommerce-qr-pay',false,dirname(plugin_basename(__FILE__)) . '/i18n/languages');
+}
+
 function woo_is_current_client_kiosk() {
 	$woo_qr_hostnames = get_option("qr-hostnames");
 	if (isset($woo_qr_hostnames)) {
