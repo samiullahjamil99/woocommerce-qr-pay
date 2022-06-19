@@ -22,6 +22,7 @@ function woo_is_current_client_kiosk() {
 			$ipaddresses[] = gethostbyname(trim($hostname));
 		}
 		$ipaddresses[] = '::1';
+		$ipaddresses[] = '127.0.0.1';
 		if (in_array(get_client_ip(), $ipaddresses)) {
 			return true;
 		}
