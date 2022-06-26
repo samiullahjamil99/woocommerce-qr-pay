@@ -12,6 +12,7 @@
 			<a href="javascript:void(0)" class="cash button alt"><?php echo __("Pay at Terminal","woocommerce-qr-pay"); ?></a>
 		</div>
     </div>
+    <?php do_action('wqp_after_checkout'); ?>
 </div>
 <style>
     #qr_pay_buttons {
