@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2022-06-19 08:19+0000\n"
-"PO-Revision-Date: 2022-06-19 08:22+0000\n"
+"PO-Revision-Date: 2022-07-01 14:18+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: languages\n"
 "Language: fr_FR\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: template/woocommerce/checkout/form-checkout.php:11
 msgid "Cancel Order"
-msgstr "Order Cancel karo"
+msgstr "annuler la commande"
 
 #. Author URI of the plugin
 msgid "https://www.samiullahjaml.com/about-me/"
@@ -25,15 +25,15 @@ msgstr "https://www.samiullahjaml.com/about-me/"
 
 #: template/woocommerce/checkout/form-checkout.php:12
 msgid "Pay at Terminal"
-msgstr "Terminal pay pesay dou"
+msgstr "Payer au terminal"
 
 #: template/woocommerce/checkout/form-checkout.php:5
 msgid "Pay by Card"
-msgstr "Card say day dou"
+msgstr "Payer par carte"
 
 #: template/woocommerce/checkout/form-checkout.php:4
 msgid "Pay by Cash"
-msgstr "Cash day dou"
+msgstr "Payer en espèce"
 
 #. Author of the plugin
 msgid "Samiullah Jamil"
@@ -42,7 +42,8 @@ msgstr "Samiullah Jamil"
 #: template/woocommerce/checkout/form-checkout.php:115
 msgid "Scan QR Code on your Phone to enter card details on Phone with Order #"
 msgstr ""
-"scan kar lou phone say qr code. Aur order number lazmi deakh lena please"
+"Scannez le code QR sur votre téléphone pour entrer les détails de la carte "
+"sur le téléphone avec la commande #"
 
 #. Name of the plugin
 msgid "Woocommerce QR Pay"
