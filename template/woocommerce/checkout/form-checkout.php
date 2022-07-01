@@ -1,15 +1,15 @@
 <div id="qodef-woo-page">
     <div id="qr_pay_error" style="display:none"></div>
     <div id="qr_pay_buttons">
-        <a href="javascript:void(0)" class="cash button alt"><?php echo __("Pay by Cash","woocommerce-qr-pay"); ?></a>
-        <a href="javascript:void(0)" class="card button alt"><?php echo __("Pay by Card","woocommerce-qr-pay"); ?></a>
+        <a href="javascript:void(0)" class="cash card-button button alt"><div><?php echo __("Pay by Cash","woocommerce-qr-pay"); ?></div><div><i class="fas fa-wallet"></i></div></a>
+        <a href="javascript:void(0)" class="card card-button button alt"><div><?php echo __("Pay by Card","woocommerce-qr-pay"); ?></div><div><i class="fas fa-credit-card"></i></div></a>
     </div>
     <div id="qr_pay_code_container" style="display:none">
         <div id="qr_orderdetails"></div>
         <div id="qrcode"></div>
         <div style="margin-top:10px;">
-			<a href="javascript:void(0)" class="cancel button alt"><?php echo __("Cancel Order","woocommerce-qr-pay"); ?></a>
-			<a href="javascript:void(0)" class="cash button alt"><?php echo __("Pay at Terminal","woocommerce-qr-pay"); ?></a>
+			<a href="javascript:void(0)" class="cancel card-button button alt"><div><?php echo __("Cancel Order","woocommerce-qr-pay"); ?></div><div><i class="fas fa-times-circle"></i></div></a>
+            <a href="javascript:void(0)" class="cash card-button button alt"><div><?php echo __("Pay at Terminal","woocommerce-qr-pay"); ?></div><div><i class="fas fa-wallet"></i></div></a>
 		</div>
     </div>
     <?php do_action('wqp_after_checkout'); ?>
@@ -27,6 +27,14 @@
     }
     #qrcode img {
         margin:auto;
+    }
+    .card-button {
+        display: inline-flex;
+        flex-direction: column;
+    }
+    .card-button i {
+        margin-top:10px;
+        font-size: 30pt;
     }
 </style>
 <script>
