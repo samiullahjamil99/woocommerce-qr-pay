@@ -1,8 +1,8 @@
 <div id="qodef-woo-page">
     <div id="qr_pay_error" style="display:none"></div>
     <div id="qr_pay_buttons">
-        <a href="javascript:void(0)" class="cash card-button button alt"><div><?php echo __("Pay by Cash","woocommerce-qr-pay"); ?></div><div><i class="fas fa-wallet"></i></div></a>
-        <a href="javascript:void(0)" class="card card-button button alt"><div><?php echo __("Pay by Card","woocommerce-qr-pay"); ?></div><div><i class="fas fa-credit-card"></i></div></a>
+        <a href="javascript:void(0)" class="cash card-button button alt"><div><?php echo __("Pay by Cash","woocommerce-qr-pay"); ?></div><span class="extra-info"><?php _e("Pay Cash on Counter","woocommerce-qr-pay"); ?></span><div><i class="fas fa-wallet"></i></div></a>
+        <a href="javascript:void(0)" class="card card-button button alt"><div><?php echo __("Pay by Card","woocommerce-qr-pay"); ?></div><span class="extra-info"><?php _e("Requires Phone and QR Scan","woocommerce-qr-pay"); ?></span><div><i class="fas fa-credit-card"></i></div></a>
     </div>
     <div id="qr_pay_code_container" style="display:none">
         <div id="qr_orderdetails"></div>
@@ -31,10 +31,17 @@
     .card-button {
         display: inline-flex;
         flex-direction: column;
+        position: relative;
+        font-size:30pt !important;
+        padding:30px 35px !important;
+        margin:0px 10px !important;
     }
     .card-button i {
         margin-top:10px;
-        font-size: 30pt;
+        font-size: 50pt;
+    }
+    .extra-info {
+        font-size:12pt;
     }
 </style>
 <script>

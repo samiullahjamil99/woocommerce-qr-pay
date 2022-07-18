@@ -2,8 +2,8 @@
 add_action("admin_menu","woo_qr_options_page");
 function woo_qr_options_page() {
     add_menu_page(
-        'Woo QR',
-        'Woo QR Options',
+        'CAM-ON Options',
+        'CAM-ON',
         'manage_options',
         'woo-qr',
         'woo_qr_options_html',
