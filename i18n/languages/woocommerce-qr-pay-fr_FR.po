@@ -8,22 +8,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2022-06-19 08:19+0000\n"
-"PO-Revision-Date: 2022-07-01 14:18+0000\n"
+"PO-Revision-Date: 2022-07-19 09:01+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: languages\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Loco-Version: 2.6.2; wp-6.0"
+"X-Loco-Version: 2.6.2; wp-6.0.1"
 
-#: template/woocommerce/checkout/form-checkout.php:11
+#: template/woocommerce/checkout/form-checkout.php:18
+msgid ""
+"After that the app will ask to open link in browser, so open the link in "
+"your mobile browser."
+msgstr ""
+"Après cela, l'application vous demandera d'ouvrir le lien dans le navigateur,"
+" alors ouvrez le lien dans votre navigateur mobile."
+
+#: template/woocommerce/checkout/form-checkout.php:29
 msgid "Cancel Order"
 msgstr "annuler la commande"
+
+#: template/woocommerce/checkout/form-checkout.php:10
+msgid "Follow These Steps"
+msgstr "Suivez ces étapes"
 
 #. Author URI of the plugin
 msgid "https://www.samiullahjaml.com/about-me/"
 msgstr "https://www.samiullahjaml.com/about-me/"
 
-#: template/woocommerce/checkout/form-checkout.php:12
+#: template/woocommerce/checkout/form-checkout.php:23
+msgid ""
+"Now a page with order details will open having a form with payment details "
+"on your phone. Fill it and proceed."
+msgstr ""
+"Maintenant, une page avec les détails de la commande s'ouvrira avec un "
+"formulaire avec les détails de paiement sur votre téléphone. Remplissez-le "
+"et continuez."
+
+#: template/woocommerce/checkout/form-checkout.php:30
 msgid "Pay at Terminal"
 msgstr "Payer au terminal"
 
@@ -35,15 +56,52 @@ msgstr "Payer par carte"
 msgid "Pay by Cash"
 msgstr "Payer en espèce"
 
+#: template/woocommerce/checkout/form-checkout.php:4
+msgid "Pay Cash on Counter"
+msgstr "Payer comptant au comptoir"
+
+#: template/woocommerce/checkout/form-checkout.php:5
+msgid "Requires Smartphone and Card Details"
+msgstr "Nécessite un smartphone et les détails de la carte"
+
 #. Author of the plugin
 msgid "Samiullah Jamil"
 msgstr "Samiullah Jamil"
 
-#: template/woocommerce/checkout/form-checkout.php:115
+#: template/woocommerce/checkout/form-checkout.php:165
 msgid "Scan QR Code on your Phone to enter card details on Phone with Order #"
 msgstr ""
 "Scannez le code QR sur votre téléphone pour entrer les détails de la carte "
 "sur le téléphone avec la commande #"
+
+#: template/woocommerce/checkout/form-checkout.php:12
+msgid "Step 1: QR Scan"
+msgstr "Étape 1 : Numérisation QR"
+
+#: template/woocommerce/checkout/form-checkout.php:17
+msgid "Step 2: Open Link"
+msgstr "Étape 2 : Ouvrir le lien"
+
+#: template/woocommerce/checkout/form-checkout.php:22
+msgid "Step 3: Enter Card Details"
+msgstr "Étape 3 : Entrez les détails de la carte"
+
+#: template/woocommerce/checkout/form-checkout.php:27
+msgid "Still Confused with Process?"
+msgstr "Toujours confus avec le processus ?"
+
+#: template/woocommerce/checkout/form-checkout.php:13
+#, php-format
+msgid ""
+"Take out your phone and open %s. Point your Camera towards the following QR "
+"code."
+msgstr ""
+"Sortez votre téléphone et ouvrez %s. Dirigez votre appareil photo vers le "
+"code QR suivant."
+
+#: template/woocommerce/checkout/form-checkout.php:28
+msgid "We have the following options for you."
+msgstr "Nous avons les options suivantes pour vous."
 
 #. Name of the plugin
 msgid "Woocommerce QR Pay"

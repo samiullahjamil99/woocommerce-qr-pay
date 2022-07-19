@@ -158,6 +158,7 @@ function woo_qr_repay_by_cash() {
 	wp_send_json($response);
 }
 
+add_action('wp_ajax_nopriv_qr_check_order_status','woo_qr_order_status');
 add_action('wp_ajax_qr_check_order_status','woo_qr_order_status');
 function woo_qr_order_status() {
 	$response = array();
